@@ -1,3 +1,9 @@
+@import '../../styles/colours.scss';
+
+@mixin hover-or-selected {
+
+}
+
 $animate: all 0.2s ease-in-out;
 
 .links-unordered-list {
@@ -9,25 +15,25 @@ $animate: all 0.2s ease-in-out;
   position: relative;
   opacity: 0.6;
   color: grey;
-  margin-bottom: 2px;
+  font-weight: bold;
 
   &:before,
   &:after {
     content: "";
     position: absolute;
-    bottom: -10px;
-    width: 0px;
-    height: 5px;
+    bottom: -5px;
+    width: 0;
+    height: 4px;
     margin: 5px 0 0;
     transition: $animate;
-    transition-duration: 0.75s;
     opacity: 0;
-    background-color: darken(orange,5%);
+    background-color: $green-primary;
     left: 0;
   }
 
   &:hover {
     cursor: pointer;
+    color: black;
     &:before,
     &:after {
       width: 100%;
