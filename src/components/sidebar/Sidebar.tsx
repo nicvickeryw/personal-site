@@ -1,37 +1,38 @@
 import React, { useState } from 'react';
 import './Sidebar.scss';
-import { Link, LinkList } from '../linklist/LinkList';
+import { LinkList } from '../linklist/LinkList';
+import { AnimatedLink } from '../animated-link/AnimatedLink';
 
 export interface LinkData {
     title: string;
     route: string;
+    toRender: JSX.Element;
 }
 
-const TOP_LINKS: LinkData[] = [
-    { title: 'About me', route: 'about' },
-    { title: "Things I've done", route: 'projects' },
-    { title: 'Stuff I enjoy', route: 'fun' },
-];
+interface SidebarProps {
+    links: LinkData[];
+}
 
-export const Sidebar: React.FC = (props: any) => {
+export const Sidebar: React.FC<SidebarProps> = ({ links }) => {
     // Track selected item in the sidebar, pass state to children.
     const [selectedIndex, setSelectedIndex] = useState<boolean | number>(false);
 
     return (
-        <div>
+        <div className="sidebar-container">
             <div style={{ paddingLeft: '40px', marginTop: '50px' }}>
-                <h3 className="sidebar-title-name">Nicholas Vickery-Wilson</h3>
-                <p style={{ color: 'grey' }}>
+                <h2 className="sidebar-title-name">Nicholas Vickery-Wilson</h2>
+                <h3 style={{ color: 'black' }}>
                     <b>Software Engineer</b>
-                </p>
+                </h3>
             </div>
 
             <LinkList>
-                {TOP_LINKS.map((link: LinkData, i: number) => (
-                    <Link
+                {links.map((link: LinkData, i: number) => (
+                    <AnimatedLink
+                        fontSize={'17px'}
                         isSelected={selectedIndex === i}
-                        selectIndex={(e: number) => {
-                            setSelectedIndex(e);
+                        selectIndex={(index: number) => {
+                            setSelectedIndex(index);
                         }}
                         key={i}
                         index={i}
