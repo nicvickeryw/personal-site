@@ -4,6 +4,7 @@ import Card from './components/card/Card';
 import { Sidebar } from './components/sidebar/Sidebar';
 
 function App() {
+    // @TODO: detect mobile viewport, convert to top-bar with expandable menu!
     return (
         <div id="main">
             <div className="sidebar-container">
