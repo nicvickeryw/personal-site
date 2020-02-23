@@ -1,9 +1,14 @@
 #main {
-  display: grid;
   min-height: 100vh;
 
   &.desktop {
+    display: grid;
     grid-template-columns: 0.2fr 0.8fr;
+  }
+
+  &.mobile {
+    display: grid;
+    grid-template-rows: 100px 1fr;
   }
 
   .sidebar-container {
