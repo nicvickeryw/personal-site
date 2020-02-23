@@ -1,55 +1,5 @@
 @import '../../styles/colours.scss';
 
-@mixin hover-or-selected {
-
-}
-
-$animate: all 0.2s ease-in-out;
-
 .links-unordered-list {
   list-style: none;
-}
-
-.link {
-  text-decoration: none;
-  position: relative;
-  opacity: 0.6;
-  color: grey;
-  font-weight: bold;
-
-  &:before,
-  &:after {
-    content: "";
-    position: absolute;
-    bottom: -5px;
-    width: 0;
-    height: 4px;
-    margin: 5px 0 0;
-    transition: $animate;
-    opacity: 0;
-    background-color: $green-primary;
-    left: 0;
-  }
-
-  &:hover {
-    cursor: pointer;
-    color: black;
-    opacity: 1;
-
-    &:before,
-    &:after {
-      width: 100%;
-      opacity: 1;
-    }
-  }
-}
-
-.selected-link {
-  text-decoration: none;
-  position: relative;
-  opacity: 1;
-  color: black;
-  padding-bottom: 1px;
-  font-weight: bold;
-  border-bottom: 4px solid $green-primary;
 }
