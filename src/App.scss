@@ -1,7 +1,10 @@
 #main {
   display: grid;
-  grid-template-columns: 0.2fr 0.8fr;
   min-height: 100vh;
+
+  &.desktop {
+    grid-template-columns: 0.2fr 0.8fr;
+  }
 
   .sidebar-container {
     background: #f2f2f2;

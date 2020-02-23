@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import './AnimatedLink.scss';
+import { UpdateIndexFn } from '../navigation/Navigation';
 
 interface LinkProps {
     route: string;
     title: string;
-    selectIndex: (e: any) => any;
+    selectIndex: UpdateIndexFn;
     index: number;
     isSelected: boolean;
     fontSize: string;

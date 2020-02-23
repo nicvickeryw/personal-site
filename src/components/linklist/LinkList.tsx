@@ -2,7 +2,7 @@ import React from 'react';
 import './LinkList.scss';
 
 interface LinkListProps {
-    children: JSX.Element[];
+    children?: any;
 }
 
 export const LinkList: React.FC<LinkListProps> = ({ children }) => {
