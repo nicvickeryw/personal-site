@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './App.scss';
 import { About } from './components/about/About';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect,
+} from 'react-router-dom';
 import { Projects } from './components/projects/Projects';
 import { Personal } from './components/personal/Personal';
 import { Navigation } from './components/navigation/Navigation';
@@ -44,6 +49,7 @@ function App() {
                 <Navigation viewportType={viewportType} links={LINKS} />
                 <div className="content">
                     <Switch>
+                        <Redirect to="/about" from="/" exact />
                         {LINKS.map((link, i) => (
                             <Route key={i} path={`/${link.route}`}>
                                 {link.toRender}

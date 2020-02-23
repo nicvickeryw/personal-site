@@ -4,6 +4,7 @@ import { Sidebar } from '../sidebar/Sidebar';
 import { TopNav } from '../top-nav/TopNav';
 import { LinkData, ViewportType } from '../../App';
 import { AnimatedLink } from '../animated-link/AnimatedLink';
+import { useLocation, useParams } from 'react-router';
 
 interface NavigationProps extends CommonNavProps {
     viewportType: ViewportType;
@@ -25,23 +26,19 @@ export const Navigation: React.FC<NavigationProps> = ({
     viewportType,
     links,
 }) => {
+    const { pathname } = useLocation();
+
     // Track selected item in the sidebar, pass state to children.
-    const [selectedIndex, setSelectedIndex]: LinkIndexStateTuple = useState<
-            number
-        >(-1),
-        animatedLinks = links.map((link: LinkData, i: number) => (
-            <AnimatedLink
-                fontSize={'17px'}
-                isSelected={selectedIndex === i}
-                selectIndex={(index: number) => {
-                    setSelectedIndex(index);
-                }}
-                key={i}
-                index={i}
-                route={link.route}
-                title={link.title}
-            />
-        ));
+    const animatedLinks = links.map(({ route, title }, i) => (
+        <AnimatedLink
+            fontSize={'17px'}
+            // Where the routes match, this is the selected link.
+            isSelected={pathname === `/${route}`}
+            key={i}
+            route={route}
+            title={title}
+        />
+    ));
 
     if (viewportType === 'desktop') {
         return (

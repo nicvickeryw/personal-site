@@ -1,36 +1,24 @@
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import './AnimatedLink.scss';
-import { UpdateIndexFn } from '../navigation/Navigation';
 
 interface LinkProps {
     route: string;
     title: string;
-    selectIndex: UpdateIndexFn;
-    index: number;
-    isSelected: boolean;
     fontSize: string;
+    isSelected: boolean;
 }
 
 export const AnimatedLink: React.FC<LinkProps> = ({
     title,
     route,
     isSelected,
-    selectIndex,
-    index,
     fontSize,
 }) => {
-    // If this item is selected, keep the underline and bold props. Enforce via dynamic class name.
-    let classes = 'link';
-    if (isSelected) {
-        classes = 'selected-link';
-    }
-
     return (
         <RouterLink
             to={`/${route}`}
-            onClick={() => selectIndex(index)}
-            className={classes}
+            className={isSelected ? 'selected-link' : 'link'}
             style={{ fontSize }}
         >
             {title}

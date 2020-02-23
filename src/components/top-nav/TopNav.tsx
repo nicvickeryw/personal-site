@@ -1,7 +1,5 @@
 import React from 'react';
-import { CommonNavProps } from '../common/common-prop-interfaces';
-
-interface TopNavProps extends CommonNavProps {}
+import { CommonNavProps as TopNavProps } from '../common/common-prop-interfaces';
 
 export const TopNav: React.FC<TopNavProps> = ({ children }) => {
     return <nav>{children}</nav>;
