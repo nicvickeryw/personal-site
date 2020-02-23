@@ -2,12 +2,7 @@ import React, { useState } from 'react';
 import './Sidebar.scss';
 import { LinkList } from '../linklist/LinkList';
 import { AnimatedLink } from '../animated-link/AnimatedLink';
-
-export interface LinkData {
-    title: string;
-    route: string;
-    toRender: JSX.Element;
-}
+import { LinkData } from '../../App';
 
 interface SidebarProps {
     links: LinkData[];
@@ -20,8 +15,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ links }) => {
     return (
         <div className="sidebar-container">
             <div style={{ paddingLeft: '40px', marginTop: '50px' }}>
-                <h2 className="sidebar-title-name">Nicholas Vickery-Wilson</h2>
-                <h3 style={{ color: 'black' }}>
+                <h2 style={{ color: 'black' }}>Nicholas Vickery-Wilson</h2>
+                <h3 className="sidebar-subtitle">
                     <b>Software Engineer</b>
                 </h3>
             </div>

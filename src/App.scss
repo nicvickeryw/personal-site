@@ -1,16 +1,15 @@
 #main {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 0.2fr 0.8fr;
   min-height: 100vh;
 
   .sidebar-container {
     background: #f2f2f2;
-    flex-grow: 1;
   }
 
   .content {
+    padding: 20px 50px;
     background: white;
-    flex-grow: 20;
   }
 }
 

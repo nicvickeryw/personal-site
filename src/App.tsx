@@ -1,14 +1,21 @@
 import React from 'react';
 import './App.scss';
-import Card from './components/card/Card';
-import { LinkData, Sidebar } from './components/sidebar/Sidebar';
+import { Sidebar } from './components/sidebar/Sidebar';
 import { About } from './components/about/About';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Projects } from './components/projects/Projects';
+import { Personal } from './components/personal/Personal';
+
+export interface LinkData {
+    title: string;
+    route: string;
+    toRender: JSX.Element;
+}
 
 const LINKS: LinkData[] = [
     { title: 'About me', route: 'about', toRender: <About /> },
-    { title: "Things I've done", route: 'projects', toRender: <div></div> },
-    { title: 'Stuff I enjoy', route: 'fun', toRender: <div></div> },
+    { title: "Things I've done", route: 'projects', toRender: <Projects /> },
+    { title: 'Stuff I enjoy', route: 'fun', toRender: <Personal /> },
 ];
 
 function App() {
