@@ -8,7 +8,7 @@ import {
     Redirect,
 } from 'react-router-dom';
 import { Projects } from './components/projects/Projects';
-import { Personal } from './components/personal/Personal';
+import { Interests } from './components/personal/Interests';
 import { Navigation } from './components/navigation/Navigation';
 
 // There's no need to differentiate further between viewports - these two should suffice.
@@ -23,7 +23,7 @@ export interface LinkData {
 const LINKS: LinkData[] = [
     { title: 'About', route: 'about', toRender: <About /> },
     { title: 'Projects', route: 'projects', toRender: <Projects /> },
-    { title: 'Interests', route: 'interests', toRender: <Personal /> },
+    { title: 'Interests', route: 'interests', toRender: <Interests /> },
 ];
 
 // Beyond this pixel breakpoint, any viewport is considered a desktop viewport.
