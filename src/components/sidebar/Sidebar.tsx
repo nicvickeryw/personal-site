@@ -16,6 +16,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ children }) => {
             </div>
 
             <LinkList>{children}</LinkList>
+            <div style={{ paddingLeft: '40px', marginTop: '50px' }}>
+                Icon1 | icon2 | icon3
+            </div>
         </div>
     );
 };

@@ -12,9 +12,11 @@ export const About: React.FC = (props: any) => {
                 </p>
                 <p>
                     As a full-stack developer, my development toolkit includes
-                    JavaScript/TypeScript, PHP, HTML/SCSS, C# .NET.
+                    JavaScript/TypeScript, PHP, HTML/SCSS, C# .NET, with a
+                    specialisation in the former two. Although my speciality
+                    lies in building fluid and responsive UIs, I have a
+                    background in network design & architecture.
                 </p>
-                <p>On weekends I like to do stuff like this!</p>
             </div>
         </React.Fragment>
     );
