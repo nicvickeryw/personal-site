@@ -1,3 +1,6 @@
+@import './styles/colours';
+@import url('https://fonts.googleapis.com/css?family=Arvo');
+
 #main {
   min-height: 100vh;
 
@@ -27,9 +30,30 @@
     }
 
     .content {
+
+      .body {
+        font-family: 'Arvo', '';
+      }
+
       grid-area: content;
     }
   }
+}
+
+.divider-thick {
+  height: 4px;
+}
+
+.bg-green-primary {
+  background: $green-primary;
+}
+
+.bg-green-secondary {
+  background: $green-secondary;
+}
+
+.bg-green-dark {
+  background: $green-dark;
 }
 
 .App-link {
