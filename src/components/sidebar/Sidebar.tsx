@@ -2,6 +2,7 @@ import React from 'react';
 import './Sidebar.scss';
 import LinkList from '../linklist/LinkList';
 import { CommonNavProps as SidebarProps } from '../common/common-prop-interfaces';
+import { FaGithub, FaLinkedin } from 'react-icons/all';
 
 export const Sidebar: React.FC<SidebarProps> = ({ children }) => {
     return (
@@ -17,7 +18,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ children }) => {
 
             <LinkList>{children}</LinkList>
             <div style={{ paddingLeft: '40px', marginTop: '50px' }}>
-                Icon1 | icon2 | icon3
+                <FaGithub style={{ fontSize: '30px' }} />
+                <FaLinkedin style={{ fontSize: '30px' }} />
+                icon3
             </div>
         </div>
     );
