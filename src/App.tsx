@@ -29,19 +29,38 @@ const LINKS: LinkData[] = [
 // Beyond this pixel breakpoint, any viewport is considered a desktop viewport.
 const DESKTOP_WIDTH_BREAKPOINT = 1240;
 
-function App() {
-    // Specified to handle width changes in the viewport, triggering a re-render.
-    const [viewportWidth, setViewportWidth] = useState(window.innerWidth),
-        handleWindowSizeChange = () => setViewportWidth(window.innerWidth);
-    let viewportType: ViewportType =
-        viewportWidth > DESKTOP_WIDTH_BREAKPOINT ? 'desktop' : 'mobile';
-
+/**
+ * Reacts to changes in window sizes.
+ * Adds listener on mount and removes it on unmount.
+ *
+ * @param onChange Function to call when the resize event is raised.
+ */
+function useWindowSizeChange(onChange: () => void) {
     // Add resize event listener on mount, remove on unmount.
     useEffect(() => {
-        window.addEventListener('resize', handleWindowSizeChange);
-        return () =>
-            window.removeEventListener('resize', handleWindowSizeChange);
+        window.addEventListener('resize', onChange);
+        return () => window.removeEventListener('resize', onChange);
     });
+}
+
+/**
+ * Retrieves the viewport type, according to provided width.
+ *
+ * @param width Numeric viewport width.
+ */
+function getViewportType(width: number): ViewportType {
+    return width > DESKTOP_WIDTH_BREAKPOINT ? 'desktop' : 'mobile';
+}
+
+function App() {
+    // Specified to handle width changes in the viewport, triggering a re-render.
+    const [viewportWidth, setViewportWidth] = useState<number>(
+        window.innerWidth
+    );
+    let viewportType = getViewportType(viewportWidth);
+
+    // Update UI when viewport moves above/below the breakpoint.
+    useWindowSizeChange(() => setViewportWidth(window.innerWidth));
 
     return (
         <div id="main" className={viewportType}>
