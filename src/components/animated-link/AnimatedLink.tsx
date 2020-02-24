@@ -28,7 +28,7 @@ export const AnimatedLink: React.FC<LinkProps> = ({
         <RouterLink
             to={`/${route}`}
             className={isSelected ? 'selected-link' : 'link'}
-            style={{ fontSize }}
+            style={{ fontSize, maxHeight: '18px' }}
         >
             {title}
         </RouterLink>

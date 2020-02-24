@@ -10,14 +10,11 @@ import './TopNav.scss';
  */
 export const TopNav: React.FC<TopNavProps> = ({ children }) => {
     return (
-        <nav id="top-nav">
+        <div id="top-nav">
             <div>
-                <h3 style={{ color: 'black' }}>Nicholas Vickery-Wilson</h3>
-                <h4 className="sidebar-subtitle">
-                    <b>Software Engineer</b>
-                </h4>
+                <h3 style={{ color: 'black', marginTop: '13px' }}>Nic</h3>
             </div>
-            {children}
-        </nav>
+            <div id="top-nav-links">{children}</div>
+        </div>
     );
 };

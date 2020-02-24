@@ -1,17 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CommonNavProps } from '../common/common-prop-interfaces';
 import { Sidebar } from '../sidebar/Sidebar';
 import { TopNav } from '../top-nav/TopNav';
-import { LinkData, ViewportType } from '../../App';
+import { ViewportType } from '../../App';
 import { AnimatedLink } from '../animated-link/AnimatedLink';
-import { useLocation, useParams } from 'react-router';
+import { useLocation } from 'react-router';
 
 interface NavigationProps extends CommonNavProps {
     viewportType: ViewportType;
 }
-
-export type UpdateIndexFn = (index: number) => void;
-export type LinkIndexStateTuple = [number, UpdateIndexFn];
 
 /**
  * Main entry-point for site navigation.

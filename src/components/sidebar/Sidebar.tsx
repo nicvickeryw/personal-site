@@ -7,7 +7,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ children }) => {
     return (
         <div className="sidebar-container">
             <div style={{ paddingLeft: '40px', marginTop: '50px' }}>
-                <h2 style={{ color: 'black' }}>Nicholas Vickery-Wilson</h2>
+                <h2 style={{ color: 'black' }}>Nic Vickery-Wilson</h2>
                 <h3 className="sidebar-subtitle">
                     <b>Software Engineer</b>
                 </h3>

@@ -21,9 +21,9 @@ export interface LinkData {
 }
 
 const LINKS: LinkData[] = [
-    { title: 'About me', route: 'about', toRender: <About /> },
-    { title: "Things I've done", route: 'projects', toRender: <Projects /> },
-    { title: 'Stuff I enjoy', route: 'fun', toRender: <Personal /> },
+    { title: 'About', route: 'about', toRender: <About /> },
+    { title: 'Projects', route: 'projects', toRender: <Projects /> },
+    { title: 'Interests', route: 'interests', toRender: <Personal /> },
 ];
 
 // Beyond this pixel breakpoint, any viewport is considered a desktop viewport.
