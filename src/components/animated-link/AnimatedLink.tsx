@@ -5,32 +5,30 @@ import './AnimatedLink.scss';
 interface LinkProps {
     route: string;
     title: string;
-    selectIndex: (e: any) => any;
-    index: number;
-    isSelected: boolean;
     fontSize: string;
+    isSelected: boolean;
 }
 
+/**
+ * Animated link component. Adds an animated underline when hovered or selected.
+ *
+ * @param title
+ * @param route
+ * @param isSelected
+ * @param fontSize
+ * @constructor
+ */
 export const AnimatedLink: React.FC<LinkProps> = ({
     title,
     route,
     isSelected,
-    selectIndex,
-    index,
     fontSize,
 }) => {
-    // If this item is selected, keep the underline and bold props. Enforce via dynamic class name.
-    let classes = 'link';
-    if (isSelected) {
-        classes = 'selected-link';
-    }
-
     return (
         <RouterLink
             to={`/${route}`}
-            onClick={() => selectIndex(index)}
-            className={classes}
-            style={{ fontSize }}
+            className={isSelected ? 'selected-link' : 'link'}
+            style={{ fontSize, maxHeight: '18px' }}
         >
             {title}
         </RouterLink>

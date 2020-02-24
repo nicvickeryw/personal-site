@@ -2,7 +2,7 @@ import React from 'react';
 import './Card.scss';
 
 interface CardProps {
-    width: string;
+    width?: string;
 }
 
 export const Card: React.FC<CardProps> = (props: any) => {
