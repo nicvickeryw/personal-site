@@ -15,9 +15,20 @@
     background: #f2f2f2;
   }
 
-  .content {
-    padding: 20px 50px;
+  .content-container {
+    display: grid;
+    grid-template-columns: 0.05fr 0.9fr 0.05fr;
+    grid-template-areas: '. content .';
     background: white;
+
+    // Apply some top padding on larger viewports (desktop view)
+    @media not screen and (max-width: 1024px) {
+      padding-top: 100px;
+    }
+
+    .content {
+      grid-area: content;
+    }
   }
 }
 

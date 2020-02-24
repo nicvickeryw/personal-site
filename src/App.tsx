@@ -47,15 +47,17 @@ function App() {
         <div id="main" className={viewportType}>
             <Router>
                 <Navigation viewportType={viewportType} links={LINKS} />
-                <div className="content">
-                    <Switch>
-                        <Redirect to="/about" from="/" exact />
-                        {LINKS.map((link, i) => (
-                            <Route key={i} path={`/${link.route}`}>
-                                {link.toRender}
-                            </Route>
-                        ))}
-                    </Switch>
+                <div className="content-container">
+                    <div className="content">
+                        <Switch>
+                            <Redirect to="/about" from="/" exact />
+                            {LINKS.map((link, i) => (
+                                <Route key={i} path={`/${link.route}`}>
+                                    {link.toRender}
+                                </Route>
+                            ))}
+                        </Switch>
+                    </div>
                 </div>
             </Router>
         </div>
