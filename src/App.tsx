@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import './App.scss';
-import { About } from './components/about/About';
+import About from './components/about/About';
 import {
     BrowserRouter as Router,
     Switch,
     Route,
     Redirect,
 } from 'react-router-dom';
-import { Projects } from './components/projects/Projects';
-import { Interests } from './components/personal/Interests';
-import { Navigation } from './components/navigation/Navigation';
+import Projects from './components/projects/Projects';
+import Interests from './components/personal/Interests';
+import Navigation from './components/navigation/Navigation';
 
 // There's no need to differentiate further between viewports - these two should suffice.
 export type ViewportType = 'desktop' | 'mobile';

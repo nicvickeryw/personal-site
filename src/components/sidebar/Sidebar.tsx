@@ -1,6 +1,6 @@
 import React from 'react';
 import './Sidebar.scss';
-import { LinkList } from '../linklist/LinkList';
+import LinkList from '../linklist/LinkList';
 import { CommonNavProps as SidebarProps } from '../common/common-prop-interfaces';
 
 export const Sidebar: React.FC<SidebarProps> = ({ children }) => {

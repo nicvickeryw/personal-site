@@ -16,3 +16,5 @@ export const LinkList: React.FC<LinkListProps> = ({ children }) => {
         </ul>
     );
 };
+
+export default LinkList;

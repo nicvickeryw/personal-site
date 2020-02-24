@@ -18,3 +18,5 @@ export const ContentHeader: React.FC<ContentHeaderProps> = ({
         </header>
     );
 };
+
+export default ContentHeader;

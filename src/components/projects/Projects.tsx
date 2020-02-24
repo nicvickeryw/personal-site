@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContentHeader } from '../content-header/ContentHeader';
+import ContentHeader from '../content-header/ContentHeader';
 
 export const Projects: React.FC = props => {
     return (
@@ -9,3 +9,5 @@ export const Projects: React.FC = props => {
         </React.Fragment>
     );
 };
+
+export default Projects;

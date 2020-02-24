@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContentHeader } from '../content-header/ContentHeader';
+import ContentHeader from '../content-header/ContentHeader';
 
 export const Interests: React.FC = props => {
     return (
@@ -11,3 +11,5 @@ export const Interests: React.FC = props => {
         </React.Fragment>
     );
 };
+
+export default Interests;
