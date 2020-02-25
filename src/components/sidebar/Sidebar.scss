@@ -2,16 +2,18 @@
 
 .sidebar-container {
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 200px 400px 1fr;
+  background: #f2f2f2;
 
-  .link-list {
-    margin: auto;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    height: 100vh;
+  .link-list-container {
+    align-self: start;
+    .link-list {
+      margin: auto;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+    }
   }
 
   .icon-link {
@@ -29,6 +31,8 @@
     margin-top: 100px;
     margin-bottom: 50px;
     align-self: end;
+    align-items: end;
+    align-content: end;
   }
 
   .sidebar-subtitle {

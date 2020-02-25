@@ -7,7 +7,13 @@ import { FaGithub, FaLinkedin } from 'react-icons/all';
 export const Sidebar: React.FC<SidebarProps> = ({ children }) => {
     return (
         <div className="sidebar-container">
-            <div style={{ paddingLeft: '40px', marginTop: '50px' }}>
+            <div
+                style={{
+                    paddingLeft: '40px',
+                    marginTop: '50px',
+                    height: '20px',
+                }}
+            >
                 <h2 style={{ color: 'black' }}>
                     Nic <br /> Vickery-Wilson
                 </h2>
@@ -15,7 +21,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ children }) => {
                     <b>Software Engineer</b>
                 </h3>
             </div>
-            <div>
+            <div className="link-list-container">
                 <LinkList>{children}</LinkList>
             </div>
             <div className="icon-links-container">

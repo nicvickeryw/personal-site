@@ -6,7 +6,10 @@ export const Interests: React.FC = props => {
         <React.Fragment>
             <ContentHeader dividerColour={'green'} title={'Interests'} />
             <div className="body">
-                <p>This is the interests component.</p>
+                <p>Some of my favourite things to do are:</p>
+                <ul>
+                    <li>Eat food</li>
+                </ul>
             </div>
         </React.Fragment>
     );

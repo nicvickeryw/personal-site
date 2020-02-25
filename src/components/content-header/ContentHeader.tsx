@@ -9,7 +9,7 @@ export const ContentHeader: React.FC<ContentHeaderProps> = ({
     dividerColour,
     title,
 }) => {
-    const classes = `divider-thick bg-${dividerColour}-dark`;
+    const classes = `divider-thick bg-${dividerColour}`;
 
     return (
         <header>
