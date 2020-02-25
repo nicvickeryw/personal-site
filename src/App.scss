@@ -1,8 +1,40 @@
 @import './styles/colours';
 @import url('https://fonts.googleapis.com/css?family=Arvo');
 
+@keyframes fade-in-from-above {
+  from {
+    opacity: 0;
+    color: black;
+    transform: translateY(-2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 #main {
   min-height: 100vh;
+
+  .hidden {
+    opacity: 0;
+  }
+
+  .visible {
+    opacity: 1;
+  }
+
+  .fade-in-above {
+    color: black;
+    animation: fade-in-from-above;
+    animation-duration: 1s;
+  }
+
+  .skills-chips {
+    & > * {
+      margin: 5px 3px;
+    }
+  }
 
   &.desktop {
     display: grid;
@@ -27,7 +59,7 @@
 
     .content {
       .body {
-        font-family: 'Arvo', '';
+          font-family: 'Arvo', '';
       }
 
       grid-area: content;

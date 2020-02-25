@@ -1,12 +1,14 @@
 import React from 'react';
 import ContentHeader from '../content-header/ContentHeader';
 import Card from '../card/Card';
+import { useAnimClassState } from '../../common/helpers/use-anim-class-state';
 
 export const Projects: React.FC = props => {
+    let classes = useAnimClassState(0, 'body hidden', 'fade-in-above visible');
     return (
         <React.Fragment>
             <ContentHeader dividerColour={'green'} title={'Projects'} />
-            <section className="body">
+            <section className={classes}>
                 <h2>Project 1</h2>
                 <Card>
                     <p>
