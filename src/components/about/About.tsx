@@ -1,7 +1,7 @@
 import React from 'react';
 import ContentHeader from '../content-header/ContentHeader';
 
-export const About: React.FC = (props: any) => {
+export const About: React.FC = props => {
     return (
         <React.Fragment>
             <ContentHeader dividerColour={'green'} title={'About'} />

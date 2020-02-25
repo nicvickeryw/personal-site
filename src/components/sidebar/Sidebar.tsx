@@ -15,12 +15,26 @@ export const Sidebar: React.FC<SidebarProps> = ({ children }) => {
                     <b>Software Engineer</b>
                 </h3>
             </div>
-
-            <LinkList>{children}</LinkList>
-            <div style={{ paddingLeft: '40px', marginTop: '50px' }}>
-                <FaGithub style={{ fontSize: '30px' }} />
-                <FaLinkedin style={{ fontSize: '30px' }} />
-                icon3
+            <div>
+                <LinkList>{children}</LinkList>
+            </div>
+            <div className="icon-links-container">
+                <span
+                    className="icon-link"
+                    onClick={() =>
+                        window.open('https://github.com/nicvickeryw')
+                    }
+                >
+                    <FaGithub />
+                </span>
+                <span
+                    className="icon-link"
+                    onClick={() =>
+                        window.open('https://www.linkedin.com/in/nicvickeryw/')
+                    }
+                >
+                    <FaLinkedin />
+                </span>
             </div>
         </div>
     );
