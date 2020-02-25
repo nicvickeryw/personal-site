@@ -11,9 +11,11 @@ export const Projects: React.FC = props => {
                 <Card>
                     <p>
                         Lead an internal team to deliver a new large-scale
-                        application to financial advisers.
+                        application to financial advisers. Released as flagship
+                        product, driving significant revenue increases from
+                        clients.
                     </p>
-                    <p>Used An</p>
+                    <p>More to come.</p>
                 </Card>
             </section>
         </React.Fragment>
