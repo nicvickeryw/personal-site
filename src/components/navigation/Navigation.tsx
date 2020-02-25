@@ -48,3 +48,5 @@ export const Navigation: React.FC<NavigationProps> = ({
         return <TopNav links={links}>{animatedLinks}</TopNav>;
     }
 };
+
+export default Navigation;

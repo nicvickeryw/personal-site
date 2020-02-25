@@ -1,3 +1,6 @@
+@import './styles/colours';
+@import url('https://fonts.googleapis.com/css?family=Arvo');
+
 #main {
   min-height: 100vh;
 
@@ -11,16 +14,32 @@
     grid-template-rows: 50px 1fr;
   }
 
-  .sidebar-container {
-    background: #f2f2f2;
-  }
-
-  .content {
-    padding: 20px 50px;
+  .content-container {
+    display: grid;
+    grid-template-columns: 0.05fr 0.9fr 0.05fr;
+    grid-template-areas: '. content .';
     background: white;
+
+    // Apply some top padding on larger viewports (desktop view)
+    @media not screen and (max-width: 1024px) {
+      padding-top: 100px;
+    }
+
+    .content {
+      .body {
+        font-family: 'Arvo', '';
+      }
+
+      grid-area: content;
+    }
   }
 }
 
-.App-link {
-  color: #61dafb;
+.divider-thick {
+  height: 5px;
+  border-style: none;
+}
+
+.bg-green {
+  background: $green;
 }

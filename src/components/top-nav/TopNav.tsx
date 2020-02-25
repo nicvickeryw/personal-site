@@ -12,7 +12,15 @@ export const TopNav: React.FC<TopNavProps> = ({ children }) => {
     return (
         <div id="top-nav">
             <div>
-                <h3 style={{ color: 'black', marginTop: '13px' }}>Nic</h3>
+                <h3
+                    style={{
+                        color: 'black',
+                        marginTop: '13px',
+                        fontSize: '30px',
+                    }}
+                >
+                    Nic
+                </h3>
             </div>
             <div id="top-nav-links">{children}</div>
         </div>
