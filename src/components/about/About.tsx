@@ -5,21 +5,21 @@ import Card from '../card/Card';
 import { Chip } from '../badge/Chip';
 
 export const About: React.FC = props => {
-    const headingClassToAdd = 'fade-in-above visible';
+    const contentClassToAdd = 'fade-in-below visible';
     let firstSubHeadingAnimClasses = useAnimClassState(
         0,
         'hidden',
-        headingClassToAdd
+        contentClassToAdd
     );
     let secondSubHeadingAnimClasses = useAnimClassState(
         500,
         'hidden',
-        headingClassToAdd
+        contentClassToAdd
     );
     let thirdSubHeadingAnimClasses = useAnimClassState(
         1000,
         'hidden',
-        headingClassToAdd
+        contentClassToAdd
     );
 
     return (
@@ -61,6 +61,7 @@ export const About: React.FC = props => {
                         <li>Java</li>
                         <li>Python</li>
                     </ul>
+                    <br />
                     <Card style={{ marginBottom: '50px' }}>
                         <h3>Skills</h3>
                         <div className="skills-chips">

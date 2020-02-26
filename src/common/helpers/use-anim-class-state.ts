@@ -22,6 +22,7 @@ export function useAnimClassState(
         classes: initialClasses || '',
     });
 
+    // @TODO: solve the memory leak issue caused by calling this too quickly..
     if (!classState.mountedOnce) {
         setTimeout(() => {
             setClassState({

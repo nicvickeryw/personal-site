@@ -1,17 +1,6 @@
 @import './styles/colours';
-@import url('https://fonts.googleapis.com/css?family=Arvo');
-
-@keyframes fade-in-from-above {
-  from {
-    opacity: 0;
-    color: black;
-    transform: translateY(-2rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+@import './styles/animations';
+@import './styles/grid-mixins';
 
 #main {
   min-height: 100vh;
@@ -22,12 +11,6 @@
 
   .visible {
     opacity: 1;
-  }
-
-  .fade-in-above {
-    color: black;
-    animation: fade-in-from-above;
-    animation-duration: 1s;
   }
 
   .skills-chips {
@@ -47,8 +30,7 @@
   }
 
   .content-container {
-    display: grid;
-    grid-template-columns: 0.05fr 0.9fr 0.05fr;
+    @include main-grid-layout;
     grid-template-areas: '. content .';
     background: white;
 
@@ -59,7 +41,7 @@
 
     .content {
       .body {
-          font-family: 'Arvo', '';
+          font-family: Helvetica, sans-serif;
       }
 
       grid-area: content;

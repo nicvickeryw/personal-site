@@ -10,6 +10,7 @@ import {
 import Projects from './components/projects/Projects';
 import Interests from './components/personal/Interests';
 import Navigation from './components/navigation/Navigation';
+import { StickyContainer } from 'react-sticky';
 
 // There's no need to differentiate further between viewports - these two should suffice.
 export type ViewportType = 'desktop' | 'mobile';
@@ -55,31 +56,33 @@ function getViewportType(width: number): ViewportType {
 function App() {
     // Specified to handle width changes in the viewport, triggering a re-render.
     const [viewportWidth, setViewportWidth] = useState<number>(
-        window.innerWidth
-    );
-    let viewportType = getViewportType(viewportWidth);
+            window.innerWidth
+        ),
+        viewportType = getViewportType(viewportWidth);
 
     // Update UI when viewport moves above/below the breakpoint.
     useWindowSizeChange(() => setViewportWidth(window.innerWidth));
 
     return (
-        <div id="main" className={viewportType}>
-            <Router>
-                <Navigation viewportType={viewportType} links={LINKS} />
-                <div className="content-container">
-                    <div className="content">
-                        <Switch>
-                            <Redirect to="/about" from="/" exact />
-                            {LINKS.map((link, i) => (
-                                <Route key={i} path={`/${link.route}`}>
-                                    {link.toRender}
-                                </Route>
-                            ))}
-                        </Switch>
+        <StickyContainer>
+            <div id="main" className={viewportType}>
+                <Router>
+                    <Navigation viewportType={viewportType} links={LINKS} />
+                    <div className="content-container">
+                        <div className="content">
+                            <Switch>
+                                <Redirect to="/about" from="/" exact />
+                                {LINKS.map((link, i) => (
+                                    <Route key={i} path={`/${link.route}`}>
+                                        {link.toRender}
+                                    </Route>
+                                ))}
+                            </Switch>
+                        </div>
                     </div>
-                </div>
-            </Router>
-        </div>
+                </Router>
+            </div>
+        </StickyContainer>
     );
 }
 
