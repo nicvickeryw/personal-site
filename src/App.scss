@@ -1,8 +1,23 @@
 @import './styles/colours';
-@import url('https://fonts.googleapis.com/css?family=Arvo');
+@import './styles/animations';
+@import './styles/grid-mixins';
 
 #main {
   min-height: 100vh;
+
+  .hidden {
+    opacity: 0;
+  }
+
+  .visible {
+    opacity: 1;
+  }
+
+  .skills-chips {
+    & > * {
+      margin: 5px 3px;
+    }
+  }
 
   &.desktop {
     display: grid;
@@ -15,8 +30,7 @@
   }
 
   .content-container {
-    display: grid;
-    grid-template-columns: 0.05fr 0.9fr 0.05fr;
+    @include main-grid-layout;
     grid-template-areas: '. content .';
     background: white;
 
@@ -27,7 +41,7 @@
 
     .content {
       .body {
-        font-family: 'Arvo', '';
+          font-family: Helvetica, sans-serif;
       }
 
       grid-area: content;

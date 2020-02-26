@@ -1,4 +1,5 @@
 import React from 'react';
+import { useAnimClassState } from '../../common/helpers/use-anim-class-state';
 
 export interface ContentHeaderProps {
     dividerColour: string;
@@ -10,10 +11,15 @@ export const ContentHeader: React.FC<ContentHeaderProps> = ({
     title,
 }) => {
     const classes = `divider-thick bg-${dividerColour}`;
+    let topHeadingAnimClasses = useAnimClassState(
+        0,
+        'hidden',
+        'fade-in-above visible'
+    );
 
     return (
         <header>
-            <h1>{title}</h1>
+            <h1 className={topHeadingAnimClasses}>{title}</h1>
             <hr className={classes} />
         </header>
     );

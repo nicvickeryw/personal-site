@@ -1,0 +1,13 @@
+@import '../../styles/colours';
+
+.chip {
+  background: $green;
+  border: 1px solid $green;
+  color: white;
+  cursor: default;
+
+  &:hover {
+    background: green;
+    border-color: green;
+  }
+}

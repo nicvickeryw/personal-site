@@ -1,0 +1,4 @@
+@mixin main-grid-layout {
+  display: grid;
+  grid-template-columns: 0.05fr 0.9fr 0.05fr;
+}
