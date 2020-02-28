@@ -3,6 +3,7 @@
 .sidebar-container {
   display: grid;
   background: $grey;
+  grid-template-rows: 200px 400px 1fr;
 
   .link-list-container {
     align-self: start;
