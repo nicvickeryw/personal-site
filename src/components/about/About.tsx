@@ -12,12 +12,12 @@ export const About: React.FC = props => {
         contentClassToAdd
     );
     let secondSubHeadingAnimClasses = useAnimClassState(
-        500,
+        200,
         'hidden',
         contentClassToAdd
     );
     let thirdSubHeadingAnimClasses = useAnimClassState(
-        1000,
+        300,
         'hidden',
         contentClassToAdd
     );
