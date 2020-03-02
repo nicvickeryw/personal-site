@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import ContentHeader from '../content-header/ContentHeader';
 import { useAnimClassState } from '../../common/helpers/use-anim-class-state';
 import Card from '../card/Card';
@@ -6,21 +6,37 @@ import { Chip } from '../badge/Chip';
 
 export const About: React.FC = props => {
     const contentClassToAdd = 'fade-in-below visible';
+    const componentIsMounted = useRef(true);
+
+    const checkIsMounted = new Promise<void>(res => {
+        if (componentIsMounted.current) {
+            res();
+        }
+    });
+
     let firstSubHeadingAnimClasses = useAnimClassState(
         0,
         'hidden',
+        checkIsMounted,
         contentClassToAdd
     );
     let secondSubHeadingAnimClasses = useAnimClassState(
-        500,
+        200,
         'hidden',
+        checkIsMounted,
         contentClassToAdd
     );
     let thirdSubHeadingAnimClasses = useAnimClassState(
-        1000,
+        300,
         'hidden',
+        checkIsMounted,
         contentClassToAdd
     );
+
+    // @TODO: useRef hook to store mounted status to pass to anim state method.
+    useEffect(() => () => {
+        componentIsMounted.current = false;
+    });
 
     return (
         <React.Fragment>

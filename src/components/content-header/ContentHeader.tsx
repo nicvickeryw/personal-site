@@ -14,6 +14,7 @@ export const ContentHeader: React.FC<ContentHeaderProps> = ({
     let topHeadingAnimClasses = useAnimClassState(
         0,
         'hidden',
+        null,
         'fade-in-above visible'
     );
 

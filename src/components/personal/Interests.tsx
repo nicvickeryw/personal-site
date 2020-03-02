@@ -3,7 +3,12 @@ import ContentHeader from '../content-header/ContentHeader';
 import { useAnimClassState } from '../../common/helpers/use-anim-class-state';
 
 export const Interests: React.FC = props => {
-    let classes = useAnimClassState(0, 'body hidden', 'fade-in-below visible');
+    let classes = useAnimClassState(
+        0,
+        'body hidden',
+        null,
+        'fade-in-below visible'
+    );
     return (
         <React.Fragment>
             <ContentHeader dividerColour={'green'} title={'Interests'} />
