@@ -8,7 +8,7 @@ import {
     Redirect,
 } from 'react-router-dom';
 import Projects from './components/projects/Projects';
-import Interests from './components/personal/Interests';
+import Interests from './components/interests/Interests';
 import Navigation from './components/navigation/Navigation';
 import { StickyContainer } from 'react-sticky';
 
@@ -62,6 +62,8 @@ function App() {
 
     // Update UI when viewport moves above/below the breakpoint.
     useWindowSizeChange(() => setViewportWidth(window.innerWidth));
+
+    console.log(process.env.LAST_FM_API_KEY);
 
     return (
         <StickyContainer>
