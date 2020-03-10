@@ -7,9 +7,18 @@ import {
     Slider,
 } from 'pure-react-carousel';
 import { ALBUM_DATA } from '../interests/albums';
+import axios from 'axios';
 
 export const AlbumCarousel: React.FC = props => {
     const [albumData, setAlbumData] = useState(ALBUM_DATA);
+
+    axios
+        .get('/.netlify/functions/lastfm-query-handler', {
+            headers: { Accept: 'application/json' },
+        })
+        .then(result => {
+            console.log(result);
+        });
 
     return (
         <CarouselProvider
@@ -21,7 +30,11 @@ export const AlbumCarousel: React.FC = props => {
             <Slider>
                 {albumData.map((data, i) => {
                     return (
-                        <Slide style={{ backgroundColor: 'red' }} index={i}>
+                        <Slide
+                            key={i}
+                            style={{ backgroundColor: 'red' }}
+                            index={i}
+                        >
                             I am the {data.id} Slide.
                         </Slide>
                     );

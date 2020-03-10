@@ -6,6 +6,6 @@ declare namespace NodeJS {
     interface ProcessEnv {
         NODE_ENV: 'development' | 'production' | 'test';
         PUBLIC_URL: string;
-        LAST_FM_API_KEY: string;
+        REACT_APP_LAST_FM_API_KEY: string;
     }
 }

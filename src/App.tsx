@@ -63,7 +63,7 @@ function App() {
     // Update UI when viewport moves above/below the breakpoint.
     useWindowSizeChange(() => setViewportWidth(window.innerWidth));
 
-    console.log(process.env.LAST_FM_API_KEY);
+    console.log(process.env.REACT_APP_LAST_FM_API_KEY);
 
     return (
         <StickyContainer>

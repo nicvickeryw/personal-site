@@ -5,7 +5,6 @@ import { TopNav } from '../top-nav/TopNav';
 import { ViewportType } from '../../App';
 import { AnimatedLink } from '../animated-link/AnimatedLink';
 import { useLocation } from 'react-router';
-import { Sticky } from 'react-sticky';
 
 interface NavigationProps extends CommonNavProps {
     viewportType: ViewportType;
