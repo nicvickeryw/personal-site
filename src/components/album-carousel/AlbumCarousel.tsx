@@ -3,11 +3,13 @@ import {
     ButtonBack,
     ButtonNext,
     CarouselProvider,
+    DotGroup,
     Slide,
     Slider,
+    Image,
 } from 'pure-react-carousel';
-import { ALBUM_DATA } from '../interests/albums';
 import axios from 'axios';
+import './AlbumCarousel.scss';
 
 export interface AlbumsAPIData {
     artist: {
@@ -20,7 +22,7 @@ export interface AlbumsAPIData {
     url: string;
     name: string;
     mbid: string;
-    // also has @attr
+    ['@attr']: { rank: string };
 }
 
 export const AlbumCarousel: React.FC = props => {
@@ -37,11 +39,43 @@ export const AlbumCarousel: React.FC = props => {
                         topalbums: { album },
                     },
                 }) => {
-                    console.log(album[0].attr);
+                    console.log(album);
                     setAlbumData(album);
                 }
             );
     }
+
+    const albumJSX = albumData.map((album, i) => {
+        const albumImageObject = album.image.find(
+            image => image.size === 'extralarge'
+        );
+
+        return (
+            <Slide key={i} index={i}>
+                <div className={'album-item-container'}>
+                    <h3 style={{ textAlign: 'center' }}>
+                        #{album['@attr'].rank}
+                    </h3>
+                    <img
+                        alt="lol"
+                        src={albumImageObject ? albumImageObject['#text'] : ''}
+                    />
+                    <span
+                        style={{
+                            marginTop: '15px',
+                            textAlign: 'center',
+                            display: 'grid',
+                        }}
+                    >
+                        <span>
+                            <b>{album.name}</b>
+                        </span>
+                        <span>{album.artist.name}</span>
+                    </span>
+                </div>
+            </Slide>
+        );
+    });
 
     return (
         <CarouselProvider
@@ -49,38 +83,27 @@ export const AlbumCarousel: React.FC = props => {
             naturalSlideHeight={60}
             totalSlides={albumData.length}
             visibleSlides={4}
+            hasMasterSpinner={!albumData.length}
+            isPlaying={true}
+            step={1}
+            infinite
         >
-            <Slider>
-                {albumData.map((album, i) => {
-                    const albumImageObject = album.image.find(
-                        image => image.size === 'extralarge'
-                    );
-
-                    if (albumImageObject) {
-                        console.log(albumImageObject['#text']);
-                    }
-
-                    return (
-                        <Slide
-                            key={i}
-                            style={{ backgroundColor: 'grey' }}
-                            index={i}
-                        >
-                            <p>{album.name}</p>
-                            <img
-                                alt="lol"
-                                src={
-                                    albumImageObject
-                                        ? albumImageObject['#text']
-                                        : ''
-                                }
-                            />
-                        </Slide>
-                    );
-                })}
-            </Slider>
-            <ButtonBack>Back</ButtonBack>
-            <ButtonNext>Next</ButtonNext>
+            <div className="slider-container">
+                <Slider
+                    className="album-item-background"
+                    style={{ height: '430px' }}
+                >
+                    {albumJSX}
+                </Slider>
+                <ButtonBack className="button-back">Back</ButtonBack>
+                <ButtonNext className="button-next">Next</ButtonNext>
+            </div>
+            <div className="dot-group-container">
+                <DotGroup
+                    dotNumbers={true}
+                    showAsSelectedForCurrentSlideOnly={true}
+                />
+            </div>
         </CarouselProvider>
     );
 };

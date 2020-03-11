@@ -1,0 +1,33 @@
+@import '../../styles/colours';
+
+.slider-container {
+  position: relative;
+
+  .album-item-container {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+  }
+}
+
+.button-back {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.button-next {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.album-item-background {
+  background: $grey;
+}
+
+.dot-group-container {
+  display: flex;
+}

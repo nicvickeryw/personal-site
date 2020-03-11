@@ -3,17 +3,17 @@ require('dotenv').config();
 
 export async function handler(event, context) {
     try {
-        const url = `https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=eps11&api_key=${process.env.REACT_APP_LAST_FM_API_KEY}&format=json`;
+        const url = `https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&user=eps11&period=1month&api_key=${process.env.REACT_APP_LAST_FM_API_KEY}&format=json`;
         const response = await axios.get(url, {
             headers: { Accept: 'application/json' },
         });
+
         return {
             statusCode: 200,
             body: JSON.stringify(response.data),
         };
     } catch (err) {
-        console.log('there was an error');
-        // console.log(err); // output to netlify function log
+        console.log(err); // output to netlify function log
         return {
             statusCode: 500,
             body: JSON.stringify({ msg: err.message }), // Could be a custom message or object i.e. JSON.stringify(err)
