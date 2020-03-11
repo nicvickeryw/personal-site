@@ -5,9 +5,14 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 import { AlbumCarousel } from '../album-carousel/AlbumCarousel';
 
 export const Interests: React.FC = props => {
-    let classes = useAnimClassState(0, 'body hidden', 'fade-in-below visible');
+    let [classes, hasMountedOnce] = useAnimClassState(
+        0,
+        'body hidden',
+        'fade-in-below visible'
+    );
 
-    return (
+    // Render if we've mounted once.
+    return hasMountedOnce ? (
         <React.Fragment>
             <ContentHeader dividerColour={'green'} title={'Interests'} />
             <div className={classes}>
@@ -17,7 +22,7 @@ export const Interests: React.FC = props => {
                 <AlbumCarousel />
             </div>
         </React.Fragment>
-    );
+    ) : null;
 };
 
 export default Interests;

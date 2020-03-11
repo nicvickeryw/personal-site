@@ -9,33 +9,72 @@ import {
 import { ALBUM_DATA } from '../interests/albums';
 import axios from 'axios';
 
-export const AlbumCarousel: React.FC = props => {
-    const [albumData, setAlbumData] = useState(ALBUM_DATA);
+export interface AlbumsAPIData {
+    artist: {
+        url: string;
+        name: string;
+        mbid: string;
+    };
+    image: { size: string; ['#text']: string }[];
+    playcount: string;
+    url: string;
+    name: string;
+    mbid: string;
+    // also has @attr
+}
 
-    axios
-        .get('/.netlify/functions/lastfm-query-handler', {
-            headers: { Accept: 'application/json' },
-        })
-        .then(result => {
-            console.log(result);
-        });
+export const AlbumCarousel: React.FC = props => {
+    const [albumData, setAlbumData] = useState<AlbumsAPIData[]>([]);
+
+    if (!albumData.length) {
+        axios
+            .get('/.netlify/functions/lastfm-query-handler', {
+                headers: { Accept: 'application/json' },
+            })
+            .then(
+                ({
+                    data: {
+                        topalbums: { album },
+                    },
+                }) => {
+                    console.log(album[0].attr);
+                    setAlbumData(album);
+                }
+            );
+    }
 
     return (
         <CarouselProvider
             naturalSlideWidth={50}
-            naturalSlideHeight={30}
+            naturalSlideHeight={60}
             totalSlides={albumData.length}
             visibleSlides={4}
         >
             <Slider>
-                {albumData.map((data, i) => {
+                {albumData.map((album, i) => {
+                    const albumImageObject = album.image.find(
+                        image => image.size === 'extralarge'
+                    );
+
+                    if (albumImageObject) {
+                        console.log(albumImageObject['#text']);
+                    }
+
                     return (
                         <Slide
                             key={i}
-                            style={{ backgroundColor: 'red' }}
+                            style={{ backgroundColor: 'grey' }}
                             index={i}
                         >
-                            I am the {data.id} Slide.
+                            <p>{album.name}</p>
+                            <img
+                                alt="lol"
+                                src={
+                                    albumImageObject
+                                        ? albumImageObject['#text']
+                                        : ''
+                                }
+                            />
                         </Slide>
                     );
                 })}

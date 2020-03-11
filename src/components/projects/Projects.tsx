@@ -4,7 +4,11 @@ import Card from '../card/Card';
 import { useAnimClassState } from '../../common/helpers/use-anim-class-state';
 
 export const Projects: React.FC = props => {
-    let classes = useAnimClassState(0, 'body hidden', 'fade-in-below visible');
+    let [classes, hasMountedOnce] = useAnimClassState(
+        0,
+        'body hidden',
+        'fade-in-below visible'
+    );
     return (
         <React.Fragment>
             <ContentHeader dividerColour={'green'} title={'Projects'} />
