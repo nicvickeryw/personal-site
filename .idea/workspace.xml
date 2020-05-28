@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b159e4c3-c71f-4dd0-92e8-a264de310d99" name="Default Changelist" comment="add-albums-carousel: (WIP) More functionality for albums">
+    <list default="true" id="b159e4c3-c71f-4dd0-92e8-a264de310d99" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +55,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/album-carousel/AlbumCarousel.tsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="351">
@@ -65,6 +63,15 @@
               <folding>
                 <element signature="e#0#52#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -159,7 +166,6 @@
       <list>
         <option value="$PROJECT_DIR$/src/components/interests/albums.ts" />
         <option value="$PROJECT_DIR$/netlify.toml" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/lambda/lastfm_query_handler.ts" />
         <option value="$PROJECT_DIR$/src/setupProxy.js" />
         <option value="$PROJECT_DIR$/src/lambda/lastfm_query_handler.js" />
@@ -183,6 +189,7 @@
         <option value="$PROJECT_DIR$/src/App.tsx" />
         <option value="$PROJECT_DIR$/src/App.scss" />
         <option value="$PROJECT_DIR$/src/components/album-carousel/AlbumCarousel.tsx" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -283,7 +290,7 @@
       <workItem from="1583841831149" duration="5679000" />
       <workItem from="1583922298394" duration="8065000" />
       <workItem from="1584446978358" duration="3176000" />
-      <workItem from="1590656991705" duration="4923000" />
+      <workItem from="1590656991705" duration="5450000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1582283836204</created>
@@ -348,11 +355,18 @@
       <option name="project" value="LOCAL" />
       <updated>1590664911263</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add-albums-carousel: Dependency tree fix.">
+      <created>1590665416401</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1590665416401</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26064000" />
+    <option name="totallyTimeSpent" value="26591000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -366,7 +380,7 @@
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26066098" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26066098" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -382,7 +396,7 @@
       <window_info anchor="bottom" id="GraphQL" order="9" />
       <window_info anchor="bottom" id="Database Changes" order="10" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32998884" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="12" visible="true" weight="0.18171683" />
+      <window_info anchor="bottom" id="Terminal" order="12" visible="true" weight="0.18171683" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -436,7 +450,8 @@
     <MESSAGE value="add-albums-carousel: (WIP) More functionality for albums" />
     <MESSAGE value="add-albums-carousel: Reduce query page size." />
     <MESSAGE value="add-albums-carousel: Add viewport context, update image size and container height reactively." />
-    <option name="LAST_COMMIT_MESSAGE" value="add-albums-carousel: Add viewport context, update image size and container height reactively." />
+    <MESSAGE value="add-albums-carousel: Dependency tree fix." />
+    <option name="LAST_COMMIT_MESSAGE" value="add-albums-carousel: Dependency tree fix." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/components/interests/albums.ts">
@@ -618,13 +633,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/App.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -649,6 +657,13 @@
           <folding>
             <element signature="e#0#52#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="52" column="23" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
         </state>
       </provider>
     </entry>
