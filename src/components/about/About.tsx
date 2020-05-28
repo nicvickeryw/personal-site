@@ -6,17 +6,17 @@ import { Chip } from '../badge/Chip';
 
 export const About: React.FC = props => {
     const contentClassToAdd = 'fade-in-below visible';
-    let firstSubHeadingAnimClasses = useAnimClassState(
+    let [firstSubHeadingAnimClasses, hasMountedOnce] = useAnimClassState(
         0,
         'hidden',
         contentClassToAdd
     );
-    let secondSubHeadingAnimClasses = useAnimClassState(
+    let [secondSubHeadingAnimClasses] = useAnimClassState(
         200,
         'hidden',
         contentClassToAdd
     );
-    let thirdSubHeadingAnimClasses = useAnimClassState(
+    let [thirdSubHeadingAnimClasses] = useAnimClassState(
         300,
         'hidden',
         contentClassToAdd

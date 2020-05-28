@@ -16,7 +16,7 @@ export function useAnimClassState(
     timeout: number = 0,
     initialClasses: string | null,
     ...classes: string[]
-) {
+): [string, boolean] {
     let [classState, setClassState] = useState<AnimationState>({
         mountedOnce: false,
         classes: initialClasses || '',
@@ -32,5 +32,5 @@ export function useAnimClassState(
         }, timeout);
     }
 
-    return classState.classes;
+    return [classState.classes, classState.mountedOnce];
 }

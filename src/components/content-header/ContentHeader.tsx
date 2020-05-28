@@ -11,7 +11,7 @@ export const ContentHeader: React.FC<ContentHeaderProps> = ({
     title,
 }) => {
     const classes = `divider-thick bg-${dividerColour}`;
-    let topHeadingAnimClasses = useAnimClassState(
+    let [topHeadingAnimClasses, hasMountedOnce] = useAnimClassState(
         0,
         'hidden',
         'fade-in-above visible'

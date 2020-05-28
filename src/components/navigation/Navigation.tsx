@@ -5,7 +5,6 @@ import { TopNav } from '../top-nav/TopNav';
 import { ViewportType } from '../../App';
 import { AnimatedLink } from '../animated-link/AnimatedLink';
 import { useLocation } from 'react-router';
-import { Sticky } from 'react-sticky';
 
 interface NavigationProps extends CommonNavProps {
     viewportType: ViewportType;
@@ -38,7 +37,7 @@ export const Navigation: React.FC<NavigationProps> = ({
         />
     ));
 
-    if (viewportType === 'desktop') {
+    if (['desktop', 'desktop-lg'].includes(viewportType)) {
         return (
             <div className="sidebar-container">
                 <Sidebar links={links}>{animatedLinks}</Sidebar>

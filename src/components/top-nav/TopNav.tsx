@@ -11,8 +11,16 @@ import { useAnimClassState } from '../../common/helpers/use-anim-class-state';
  * @constructor
  */
 export const TopNav: React.FC<TopNavProps> = ({ children }) => {
-    let siteTitleClass = useAnimClassState(0, 'hidden', 'fade-in-left visible');
-    let topLinksClass = useAnimClassState(0, 'hidden', 'fade-in-right visible');
+    let [siteTitleClass] = useAnimClassState(
+        0,
+        'hidden',
+        'fade-in-left visible'
+    );
+    let [topLinksClass] = useAnimClassState(
+        0,
+        'hidden',
+        'fade-in-right visible'
+    );
 
     return (
         <Sticky>
