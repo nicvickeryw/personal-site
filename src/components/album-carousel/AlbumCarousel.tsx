@@ -23,16 +23,9 @@ export interface Image {
     ['#text']: string; // Link to source image
 }
 
-const VIEWPORT_TYPE_TO_RENDERED_SLIDES = {
-    'desktop-lg': 4,
-    desktop: 4,
-    tablet: 3,
-    mobile: 3,
-};
-
 const VIEWPORT_TYPE_TO_CAROUSEL_HEIGHT = {
     'desktop-lg': '460px',
-    desktop: '460px',
+    desktop: '320px',
     tablet: '320px',
     mobile: '220px',
 };
@@ -100,7 +93,7 @@ export const AlbumCarousel: React.FC = props => {
             naturalSlideWidth={50}
             naturalSlideHeight={60}
             totalSlides={albumData.length}
-            visibleSlides={VIEWPORT_TYPE_TO_RENDERED_SLIDES[viewportType]}
+            visibleSlides={3}
             hasMasterSpinner={!albumData.length}
             isPlaying={true}
             step={1}

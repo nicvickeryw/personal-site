@@ -28,8 +28,8 @@ const LINKS: LinkData[] = [
     { title: 'Interests', route: 'interests', toRender: <Interests /> },
 ];
 
-const DESKTOP_LARGE_WIDTH_BREAKPOINT = 1240;
-const DESKTOP_WIDTH_BREAKPOINT = 1240;
+const DESKTOP_LARGE_WIDTH_BREAKPOINT = 1440;
+const DESKTOP_WIDTH_BREAKPOINT = 1024;
 const TABLET_WIDTH_BREAKPOINT = 768;
 
 /**
