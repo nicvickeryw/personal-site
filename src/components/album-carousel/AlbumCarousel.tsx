@@ -1,15 +1,8 @@
-import React, { useState } from 'react';
-import {
-    ButtonBack,
-    ButtonNext,
-    CarouselProvider,
-    DotGroup,
-    Slide,
-    Slider,
-    Image,
-} from 'pure-react-carousel';
+import React, { useContext, useState } from 'react';
+import { CarouselProvider, Slide, Slider } from 'pure-react-carousel';
 import axios from 'axios';
 import './AlbumCarousel.scss';
+import ViewportContext from '../../common/context/viewport-context';
 
 export interface AlbumsAPIData {
     artist: {
@@ -17,7 +10,7 @@ export interface AlbumsAPIData {
         name: string;
         mbid: string;
     };
-    image: { size: string; ['#text']: string }[];
+    image: Image[];
     playcount: string;
     url: string;
     name: string;
@@ -25,30 +18,54 @@ export interface AlbumsAPIData {
     ['@attr']: { rank: string };
 }
 
+export interface Image {
+    size: 'small' | 'medium' | 'large' | 'extralarge'; // Size for source image
+    ['#text']: string; // Link to source image
+}
+
+const VIEWPORT_TYPE_TO_RENDERED_SLIDES = {
+    'desktop-lg': 4,
+    desktop: 4,
+    tablet: 3,
+    mobile: 3,
+};
+
+const VIEWPORT_TYPE_TO_CAROUSEL_HEIGHT = {
+    'desktop-lg': '460px',
+    desktop: '460px',
+    tablet: '320px',
+    mobile: '220px',
+};
+
 export const AlbumCarousel: React.FC = props => {
-    const [albumData, setAlbumData] = useState<AlbumsAPIData[]>([]);
+    const [albumData, setAlbumData] = useState<AlbumsAPIData[]>([]),
+        viewportType = useContext(ViewportContext),
+        // Find the right size image for the viewport width
+        findImageFromViewportWidth = ({ size }: Image) => {
+            switch (viewportType) {
+                case 'desktop-lg':
+                    return size === 'extralarge';
+                case 'desktop':
+                case 'tablet':
+                    return size === 'large';
+                default:
+                    return size === 'medium';
+            }
+        };
 
     if (!albumData.length) {
         axios
             .get('/.netlify/functions/lastfm-query-handler', {
                 headers: { Accept: 'application/json' },
             })
-            .then(
-                ({
-                    data: {
-                        topalbums: { album },
-                    },
-                }) => {
-                    console.log(album);
-                    setAlbumData(album);
-                }
+            // It's really confusing that the LF API returns `album` instead of `albums` as an array..
+            .then(({ data: { topalbums: { album: albums } } }) =>
+                setAlbumData(albums)
             );
     }
 
     const albumJSX = albumData.map((album, i) => {
-        const albumImageObject = album.image.find(
-            image => image.size === 'extralarge'
-        );
+        const albumImageObject = album.image.find(findImageFromViewportWidth);
 
         return (
             <Slide key={i} index={i}>
@@ -57,7 +74,8 @@ export const AlbumCarousel: React.FC = props => {
                         #{album['@attr'].rank}
                     </h3>
                     <img
-                        alt="lol"
+                        style={{ cursor: 'grab' }}
+                        alt="test"
                         src={albumImageObject ? albumImageObject['#text'] : ''}
                     />
                     <span
@@ -82,7 +100,7 @@ export const AlbumCarousel: React.FC = props => {
             naturalSlideWidth={50}
             naturalSlideHeight={60}
             totalSlides={albumData.length}
-            visibleSlides={4}
+            visibleSlides={VIEWPORT_TYPE_TO_RENDERED_SLIDES[viewportType]}
             hasMasterSpinner={!albumData.length}
             isPlaying={true}
             step={1}
@@ -91,18 +109,12 @@ export const AlbumCarousel: React.FC = props => {
             <div className="slider-container">
                 <Slider
                     className="album-item-background"
-                    style={{ height: '430px' }}
+                    style={{
+                        height: VIEWPORT_TYPE_TO_CAROUSEL_HEIGHT[viewportType],
+                    }}
                 >
                     {albumJSX}
                 </Slider>
-                <ButtonBack className="button-back">Back</ButtonBack>
-                <ButtonNext className="button-next">Next</ButtonNext>
-            </div>
-            <div className="dot-group-container">
-                <DotGroup
-                    dotNumbers={true}
-                    showAsSelectedForCurrentSlideOnly={true}
-                />
             </div>
         </CarouselProvider>
     );

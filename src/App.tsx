@@ -10,10 +10,11 @@ import {
 import Projects from './components/projects/Projects';
 import Interests from './components/interests/Interests';
 import Navigation from './components/navigation/Navigation';
+import { ViewportProvider } from './common/context/viewport-context';
 import { StickyContainer } from 'react-sticky';
 
 // There's no need to differentiate further between viewports - these two should suffice.
-export type ViewportType = 'desktop' | 'mobile';
+export type ViewportType = 'desktop-lg' | 'desktop' | 'tablet' | 'mobile';
 
 export interface LinkData {
     title: string;
@@ -27,8 +28,9 @@ const LINKS: LinkData[] = [
     { title: 'Interests', route: 'interests', toRender: <Interests /> },
 ];
 
-// Beyond this pixel breakpoint, any viewport is considered a desktop viewport.
+const DESKTOP_LARGE_WIDTH_BREAKPOINT = 1240;
 const DESKTOP_WIDTH_BREAKPOINT = 1240;
+const TABLET_WIDTH_BREAKPOINT = 768;
 
 /**
  * Reacts to changes in window sizes.
@@ -50,7 +52,19 @@ function useWindowSizeChange(onChange: () => void) {
  * @param width Numeric viewport width.
  */
 function getViewportType(width: number): ViewportType {
-    return width > DESKTOP_WIDTH_BREAKPOINT ? 'desktop' : 'mobile';
+    // return width > DESKTOP_WIDTH_BREAKPOINT ? 'desktop' : 'mobile';
+    if (width >= DESKTOP_LARGE_WIDTH_BREAKPOINT) {
+        return 'desktop-lg';
+    } else if (width >= DESKTOP_WIDTH_BREAKPOINT) {
+        return 'desktop';
+    } else if (
+        width < DESKTOP_WIDTH_BREAKPOINT &&
+        width >= TABLET_WIDTH_BREAKPOINT
+    ) {
+        return 'tablet';
+    } else {
+        return 'mobile';
+    }
 }
 
 function App() {
@@ -63,26 +77,30 @@ function App() {
     // Update UI when viewport moves above/below the breakpoint.
     useWindowSizeChange(() => setViewportWidth(window.innerWidth));
 
+    console.log(viewportType);
+
     return (
-        <StickyContainer>
-            <div id="main" className={viewportType}>
-                <Router>
-                    <Navigation viewportType={viewportType} links={LINKS} />
-                    <div className="content-container">
-                        <div className="content">
-                            <Switch>
-                                <Redirect to="/about" from="/" exact />
-                                {LINKS.map((link, i) => (
-                                    <Route key={i} path={`/${link.route}`}>
-                                        {link.toRender}
-                                    </Route>
-                                ))}
-                            </Switch>
+        <ViewportProvider value={viewportType}>
+            <StickyContainer>
+                <div id="main" className={viewportType}>
+                    <Router>
+                        <Navigation viewportType={viewportType} links={LINKS} />
+                        <div className="content-container">
+                            <div className="content">
+                                <Switch>
+                                    <Redirect to="/about" from="/" exact />
+                                    {LINKS.map((link, i) => (
+                                        <Route key={i} path={`/${link.route}`}>
+                                            {link.toRender}
+                                        </Route>
+                                    ))}
+                                </Switch>
+                            </div>
                         </div>
-                    </div>
-                </Router>
-            </div>
-        </StickyContainer>
+                    </Router>
+                </div>
+            </StickyContainer>
+        </ViewportProvider>
     );
 }
 
