@@ -13,7 +13,6 @@ import Navigation from './components/navigation/Navigation';
 import { ViewportProvider } from './common/context/viewport-context';
 import { StickyContainer } from 'react-sticky';
 
-// There's no need to differentiate further between viewports - these two should suffice.
 export type ViewportType = 'desktop-lg' | 'desktop' | 'tablet' | 'mobile';
 
 export interface LinkData {
@@ -76,8 +75,6 @@ function App() {
 
     // Update UI when viewport moves above/below the breakpoint.
     useWindowSizeChange(() => setViewportWidth(window.innerWidth));
-
-    console.log(viewportType);
 
     return (
         <ViewportProvider value={viewportType}>
