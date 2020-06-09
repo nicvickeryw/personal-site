@@ -3,8 +3,8 @@ import ContentHeader from '../content-header/ContentHeader';
 import Card from '../card/Card';
 import { useAnimClassState } from '../../common/helpers/use-anim-class-state';
 
-export const Projects: React.FC = props => {
-    let [classes, hasMountedOnce] = useAnimClassState(
+export const Projects: React.FC = () => {
+    let [classes] = useAnimClassState(
         0,
         'body hidden',
         'fade-in-below visible'
@@ -13,15 +13,21 @@ export const Projects: React.FC = props => {
         <React.Fragment>
             <ContentHeader dividerColour={'green'} title={'Projects'} />
             <section className={classes}>
-                <h2>Project 1</h2>
+                <h2>GENOA</h2>
                 <Card>
                     <p>
-                        Lead an internal team to deliver a new large-scale
-                        application to financial advisers. Released as flagship
-                        product, driving significant revenue increases from
-                        clients.
+                        A large scale system for processing, categorizing and
+                        assigning advice requests for financial advisers.
                     </p>
-                    <p>More to come.</p>
+                </Card>
+                <h2>SORRENTO</h2>
+                <Card>
+                    <p>
+                        A complex multi-tenant forms-based system for advisers
+                        to add or update existing client financial information.
+                        Built to integrate with various existing CRM systems to
+                        enhance adviser workflow.
+                    </p>
                 </Card>
             </section>
         </React.Fragment>

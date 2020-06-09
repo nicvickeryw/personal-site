@@ -5,6 +5,7 @@ import { TopNav } from '../top-nav/TopNav';
 import { ViewportType } from '../../App';
 import { AnimatedLink } from '../animated-link/AnimatedLink';
 import { useLocation } from 'react-router';
+import { Sticky } from 'react-sticky';
 
 interface NavigationProps extends CommonNavProps {
     viewportType: ViewportType;
@@ -39,9 +40,21 @@ export const Navigation: React.FC<NavigationProps> = ({
 
     if (['desktop', 'desktop-lg'].includes(viewportType)) {
         return (
-            <div className="sidebar-container">
-                <Sidebar links={links}>{animatedLinks}</Sidebar>
-            </div>
+            <Sticky>
+                {({ style }) => (
+                    <div
+                        style={{
+                            ...style,
+                            background: '#f2f2f2',
+                            height: '100%',
+                            zIndex: 3,
+                        }}
+                        className="sidebar-container"
+                    >
+                        <Sidebar links={links}>{animatedLinks}</Sidebar>
+                    </div>
+                )}
+            </Sticky>
         );
     } else {
         // No sidebar to render, but we'll render a sticky nav-bar in its place for a better UI on smaller viewports.

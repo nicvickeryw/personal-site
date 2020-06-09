@@ -1,6 +1,18 @@
 import React, { useState } from 'react';
 
-export function HoverImageWrapper({ src, rank, title, subtitle }: any) {
+interface HoverImageWrapperProps {
+    src: string;
+    rank: number;
+    title: string;
+    subtitle: string;
+}
+
+export function HoverImageWrapper<HoverImageWrapperProps>({
+    src,
+    rank,
+    title,
+    subtitle,
+}: any) {
     const [hovered, setHovered] = useState(false);
 
     return (
@@ -9,7 +21,7 @@ export function HoverImageWrapper({ src, rank, title, subtitle }: any) {
                 transitionDuration: '0.2s',
                 transform: `${hovered ? 'scale(1.5,1.5)' : 'scale(1,1)'}`,
                 borderRadius: hovered ? '20px' : 0,
-                zIndex: hovered ? 50 : 1,
+                zIndex: hovered ? 2 : 1,
                 margin: '20px',
                 display: 'grid',
                 gridTemplateRows: '0.7fr 0.3fr',
@@ -18,6 +30,7 @@ export function HoverImageWrapper({ src, rank, title, subtitle }: any) {
                 cursor: 'pointer',
                 backgroundImage: `url(${src})`,
                 color: 'white',
+                boxShadow: 'inset 0px 0px 90px 27px rgba(0,0,0,0.75)',
             }}
             onMouseOver={() => setHovered(true)}
             onMouseOut={() => setHovered(false)}
@@ -28,10 +41,9 @@ export function HoverImageWrapper({ src, rank, title, subtitle }: any) {
                     display: 'flex',
                     flexDirection: 'column',
                     fontWeight: 700,
-                    mixBlendMode: 'difference',
                 }}
             >
-                <div style={{ margin: 'auto' }}>#{rank}</div>
+                <div style={{ margin: 'auto', fontWeight: 1000 }}>#{rank}</div>
                 <div style={{ margin: 'auto' }}>{title}</div>
                 <div style={{ fontSize: '16px', margin: 'auto' }}>
                     {subtitle}
