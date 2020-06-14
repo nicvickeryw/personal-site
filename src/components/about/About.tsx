@@ -46,7 +46,7 @@ export const About: React.FC = props => {
                         I'm currently working for Padua Financial Group, where
                         we use <b>PHP</b> alongside SilverStripe for our
                         back-end RESTful API development, alongside an
-                        <b> Angular 2+ </b>
+                        <b> Angular 9 </b>
                         front-end system, all hosted on <b>AWS EC2 & S3</b>.
                     </p>
                     <p>
