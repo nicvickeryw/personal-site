@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 
-interface HoverImageWrapperProps {
+export interface HoverImageWrapperProps {
     src: string;
     rank: number;
     title: string;
     subtitle: string;
 }
 
-export function HoverImageWrapper<HoverImageWrapperProps>({
+export const HoverImageWrapper: React.FC<HoverImageWrapperProps> = ({
     src,
     rank,
     title,
     subtitle,
-}: any) {
+}) => {
     const [hovered, setHovered] = useState(false);
 
     return (
@@ -66,6 +66,6 @@ export function HoverImageWrapper<HoverImageWrapperProps>({
             </div>
         </div>
     );
-}
+};
 
 export default HoverImageWrapper;
