@@ -3,9 +3,9 @@
 .sidebar-container {
   display: grid;
   background: $grey;
-  grid-template-rows: 200px 400px 1fr;
 
   .link-list-container {
+    margin-top: -80px;
     align-self: start;
     .link-list {
       margin: auto;
@@ -21,6 +21,7 @@
     cursor: pointer;
     font-size: 34px;
     margin: 0 5px;
+    color: $text;
 
     &:hover {
       color: $green;

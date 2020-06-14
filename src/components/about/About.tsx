@@ -39,13 +39,13 @@ export const About: React.FC = props => {
                 <h4 className={secondSubHeadingAnimClasses}>My name is Nic.</h4>
                 <div className={thirdSubHeadingAnimClasses}>
                     <p>
-                        I'm a skilled, driven and motivated software developer
+                        I'm a skilled, driven and passionate software engineer
                         from Wollongong, NSW.
                     </p>
                     <p>
                         I'm currently working for Padua Financial Group, where
                         we use <b>PHP</b> alongside SilverStripe for our
-                        back-end RESTful API development, alongside an
+                        back-end RESTful API development, as well as an
                         <b> Angular 9 </b>
                         front-end system, all hosted on <b>AWS EC2 & S3</b>.
                     </p>
