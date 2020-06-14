@@ -18,7 +18,10 @@
   }
 
   .skills-chips {
+    display: flex;
+
     & > * {
+      width: 25%;
       margin: 5px 3px;
     }
   }

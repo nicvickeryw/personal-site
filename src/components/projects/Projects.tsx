@@ -28,6 +28,12 @@ export const Projects: React.FC = () => {
                         Built to integrate with various existing CRM systems to
                         enhance adviser workflow.
                     </p>
+                    <p>
+                        Leveraged a complex dynamic form system build from
+                        scratch in PHP, to allow different tenants' sites to
+                        display completely separate forms using supported
+                        respective front-end components.
+                    </p>
                 </Card>
             </section>
         </React.Fragment>

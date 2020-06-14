@@ -3,6 +3,35 @@ import ContentHeader from '../content-header/ContentHeader';
 import { useAnimClassState } from '../../common/helpers/use-anim-class-state';
 import Card from '../card/Card';
 import { Chip } from '../badge/Chip';
+import { ProgressIndicator } from '../progress-indicator/ProgressIndicator';
+
+const SKILLS_DATA = [
+    {
+        title: 'Angular',
+        level: 100,
+        color: 'red',
+    },
+    {
+        title: 'React',
+        level: 90,
+        color: 'green',
+    },
+    {
+        title: 'Vue',
+        level: 50,
+        color: 'blue',
+    },
+    {
+        title: 'Laravel',
+        level: 70,
+        color: 'orange',
+    },
+    {
+        title: 'GraphQL',
+        level: 60,
+        color: 'purple',
+    },
+];
 
 export const About: React.FC = props => {
     const contentClassToAdd = 'fade-in-below visible';
@@ -72,12 +101,20 @@ export const About: React.FC = props => {
                     <Card style={{ marginBottom: '50px' }}>
                         <h3>Skills</h3>
                         <div className="skills-chips">
-                            <Chip>React</Chip>
-                            <Chip>Angular 2+</Chip>
-                            <Chip>Material Design</Chip>
-                            <Chip>GraphQL</Chip>
-                            <Chip>Apollo Client/Server</Chip>
-                            <Chip>Amazon Web Services</Chip>
+                            {SKILLS_DATA.map(({ title, level, color }) => (
+                                <span
+                                    style={{
+                                        margin: '0 10px',
+                                        textAlign: 'center',
+                                    }}
+                                >
+                                    <span>{title}</span>
+                                    <ProgressIndicator
+                                        backgroundColor={color}
+                                        level={level}
+                                    />
+                                </span>
+                            ))}
                         </div>
                     </Card>
                 </div>
