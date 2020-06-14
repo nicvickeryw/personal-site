@@ -4,6 +4,9 @@ import { useAnimClassState } from '../../common/helpers/use-anim-class-state';
 import axios from 'axios';
 import HoverImageWrapper from '../hover-image-wrapper/HoverImageWrapper';
 import { AlbumsAPIData } from '../../common/api/lastfm-data';
+import AlbumImageContentLoader from '../content-loader/AlbumImageContentLoader';
+
+const NUM_OF_ALBUMS = 25;
 
 export const Interests: React.FC = () => {
     let [classes, hasMountedOnce] = useAnimClassState(
@@ -50,7 +53,13 @@ export const Interests: React.FC = () => {
                         flexWrap: 'wrap',
                     }}
                 >
-                    {(albums.length && albums) || <div>LOADING!</div>}
+                    {albums.length
+                        ? albums
+                        : Array.from(Array(NUM_OF_ALBUMS)).map(() => (
+                              <AlbumImageContentLoader
+                                  style={{ margin: '20px' }}
+                              />
+                          ))}
                 </div>
             </div>
         </React.Fragment>
