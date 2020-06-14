@@ -55,8 +55,9 @@ export const Interests: React.FC = () => {
                 >
                     {albums.length
                         ? albums
-                        : Array.from(Array(NUM_OF_ALBUMS)).map(() => (
+                        : Array.from(Array(NUM_OF_ALBUMS)).map((_, i) => (
                               <AlbumImageContentLoader
+                                  key={i}
                                   style={{ margin: '20px' }}
                               />
                           ))}
