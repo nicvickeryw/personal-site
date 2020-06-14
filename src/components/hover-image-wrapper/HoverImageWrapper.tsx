@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
 
-interface HoverImageWrapperProps {
+export interface HoverImageWrapperProps {
     src: string;
     rank: number;
     title: string;
     subtitle: string;
 }
 
-export function HoverImageWrapper<HoverImageWrapperProps>({
+export const HoverImageWrapper: React.FC<HoverImageWrapperProps> = ({
     src,
     rank,
     title,
     subtitle,
-}: any) {
+}) => {
     const [hovered, setHovered] = useState(false);
 
     return (
         <div
             style={{
+                background: '#f2f2f2',
                 margin: '20px',
                 boxShadow: hovered
                     ? '0px 5px 3px -1px rgba(0,0,0,0.2), 0px 5px 5px 0px rgba(0,0,0,0.14), 0px 3px 5px 0px rgba(0,0,0,0.12)'
@@ -42,7 +43,6 @@ export function HoverImageWrapper<HoverImageWrapperProps>({
             />
             <div
                 style={{
-                    background: '#f2f2f2',
                     borderBottomRightRadius: '10px',
                     borderBottomLeftRadius: '10px',
                 }}
@@ -66,6 +66,6 @@ export function HoverImageWrapper<HoverImageWrapperProps>({
             </div>
         </div>
     );
-}
+};
 
 export default HoverImageWrapper;
