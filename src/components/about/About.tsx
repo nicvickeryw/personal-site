@@ -6,7 +6,7 @@ import { Chip } from '../badge/Chip';
 
 export const About: React.FC = props => {
     const contentClassToAdd = 'fade-in-below visible';
-    let [firstSubHeadingAnimClasses, hasMountedOnce] = useAnimClassState(
+    let [firstSubHeadingAnimClasses] = useAnimClassState(
         0,
         'hidden',
         contentClassToAdd
@@ -27,7 +27,14 @@ export const About: React.FC = props => {
             <ContentHeader dividerColour={'green'} title={'About'} />
             <div className="body">
                 <h3 className={firstSubHeadingAnimClasses}>
-                    Hey there! <span style={{ fontSize: '26px' }}>👋</span>
+                    Hey there!{' '}
+                    <span
+                        role="img"
+                        aria-label="waving-emoji"
+                        style={{ fontSize: '26px' }}
+                    >
+                        👋
+                    </span>
                 </h3>
                 <h4 className={secondSubHeadingAnimClasses}>My name is Nic.</h4>
                 <div className={thirdSubHeadingAnimClasses}>
@@ -36,10 +43,10 @@ export const About: React.FC = props => {
                         from Wollongong, NSW.
                     </p>
                     <p>
-                        I'm currently working for Padua Financial Group, where I
-                        use <b>PHP</b> alongside SilverStripe for our back-end
-                        RESTful API development, alongside an
-                        <b> Angular 2+ </b>
+                        I'm currently working for Padua Financial Group, where
+                        we use <b>PHP</b> alongside SilverStripe for our
+                        back-end RESTful API development, alongside an
+                        <b> Angular 9 </b>
                         front-end system, all hosted on <b>AWS EC2 & S3</b>.
                     </p>
                     <p>
@@ -56,7 +63,7 @@ export const About: React.FC = props => {
                         <li>
                             <b>PHP</b>
                         </li>
-                        <li>HTML/SCSS</li>
+                        <li>HTML/CSS</li>
                         <li>C#</li>
                         <li>Java</li>
                         <li>Python</li>

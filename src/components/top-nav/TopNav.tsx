@@ -25,7 +25,7 @@ export const TopNav: React.FC<TopNavProps> = ({ children }) => {
     return (
         <Sticky>
             {({ style }) => (
-                <header style={style}>
+                <header style={{ ...style, zIndex: 3 }}>
                     <div id="top-nav">
                         <div>
                             <h3

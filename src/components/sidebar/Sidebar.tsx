@@ -6,7 +6,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/all';
 import { useAnimClassState } from '../../common/helpers/use-anim-class-state';
 
 export const Sidebar: React.FC<SidebarProps> = ({ children }) => {
-    let [sidebarTitleClass, hasMountedOnce] = useAnimClassState(
+    let [sidebarTitleClass] = useAnimClassState(
         0,
         'hidden',
         'fade-in-left visible'
