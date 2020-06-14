@@ -18,6 +18,7 @@ export function HoverImageWrapper<HoverImageWrapperProps>({
     return (
         <div
             style={{
+                background: '#f2f2f2',
                 margin: '20px',
                 boxShadow: hovered
                     ? '0px 5px 3px -1px rgba(0,0,0,0.2), 0px 5px 5px 0px rgba(0,0,0,0.14), 0px 3px 5px 0px rgba(0,0,0,0.12)'
@@ -42,7 +43,6 @@ export function HoverImageWrapper<HoverImageWrapperProps>({
             />
             <div
                 style={{
-                    background: '#f2f2f2',
                     borderBottomRightRadius: '10px',
                     borderBottomLeftRadius: '10px',
                 }}
