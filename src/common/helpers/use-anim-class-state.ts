@@ -27,7 +27,9 @@ export function useAnimClassState(
         setTimeout(() => {
             setClassState({
                 mountedOnce: true,
-                classes: `${classState.classes} ${classes.join(' ')}`,
+                classes: `${classState.classes
+                    .split(' ')
+                    .filter(c => c !== 'hidden')} ${classes.join(' ')}`,
             });
         }, timeout);
     }

@@ -2,7 +2,6 @@ import React from 'react';
 import ContentHeader from '../content-header/ContentHeader';
 import { useAnimClassState } from '../../common/helpers/use-anim-class-state';
 import Card from '../card/Card';
-import { Chip } from '../badge/Chip';
 import { ProgressIndicator } from '../progress-indicator/ProgressIndicator';
 
 const SKILLS_DATA = [
@@ -18,7 +17,7 @@ const SKILLS_DATA = [
     },
     {
         title: 'Vue',
-        level: 50,
+        level: 60,
         color: 'blue',
     },
     {
@@ -30,6 +29,11 @@ const SKILLS_DATA = [
         title: 'GraphQL',
         level: 60,
         color: 'purple',
+    },
+    {
+        title: 'SQL',
+        level: 80,
+        color: '#34ebde',
     },
 ];
 
@@ -101,14 +105,16 @@ export const About: React.FC = props => {
                     <Card style={{ marginBottom: '50px' }}>
                         <h3>Skills</h3>
                         <div className="skills-chips">
-                            {SKILLS_DATA.map(({ title, level, color }) => (
+                            {SKILLS_DATA.map(({ title, level, color }, i) => (
                                 <span
+                                    key={i}
                                     style={{
-                                        margin: '0 10px',
                                         textAlign: 'center',
                                     }}
                                 >
-                                    <span>{title}</span>
+                                    <div style={{ marginBottom: '5px' }}>
+                                        {title}
+                                    </div>
                                     <ProgressIndicator
                                         backgroundColor={color}
                                         level={level}

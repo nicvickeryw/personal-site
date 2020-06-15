@@ -3,64 +3,90 @@
 @import './styles/grid-mixins';
 
 #main {
-  min-height: 100vh;
+    min-height: 100vh;
 
-  p, li, h1, h2, h3, h4, h5, h6 {
-    color: $text;
-  }
-
-  .hidden {
-    opacity: 0;
-  }
-
-  .visible {
-    opacity: 1;
-  }
-
-  .skills-chips {
-    display: flex;
-
-    & > * {
-      width: 25%;
-      margin: 5px 3px;
-    }
-  }
-
-  &.desktop, &.desktop-lg {
-    display: grid;
-    grid-template-columns: 0.2fr 0.8fr;
-  }
-
-  &.mobile {
-    display: grid;
-    grid-template-rows: 50px 1fr;
-  }
-
-  .content-container {
-    @include main-grid-layout;
-    grid-template-areas: '. content .';
-    background: white;
-
-    // Apply some top padding on larger viewports (desktop view)
-    @media not screen and (max-width: 1024px) {
-      padding-top: 100px;
+    p, li, h1, h2, h3, h4, h5, h6 {
+        color: $text;
     }
 
-    .content {
-      .body {
-          font-family: Helvetica, sans-serif;
-      }
-
-      grid-area: content;
+    .hidden {
+        opacity: 0;
     }
-  }
+
+    .visible {
+        opacity: 1;
+    }
+
+    .skills-chips {
+        display: grid;
+        grid-gap: 10px;
+    }
+
+    &.desktop, &.desktop-lg {
+        display: grid;
+        grid-template-columns: 0.2fr 0.8fr;
+
+        .content-container {
+            @include main-grid-layout;
+        }
+
+        .skills-chips {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    &.tablet {
+        display: grid;
+        grid-template-rows: 50px 1fr;
+
+        .content-container {
+            display: grid;
+            grid-template-columns: 30px 1fr 30px;
+        }
+
+        .skills-chips {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &.mobile {
+        display: grid;
+        grid-template-rows: 50px 1fr;
+
+        .content-container {
+            display: grid;
+            grid-template-columns: 10px 1fr 10px;
+        }
+
+        .skills-chips {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .content-container {
+        grid-template-areas: '. content .';
+        background: white;
+
+        // Apply some top padding on larger viewports (desktop view)
+        @media not screen and (max-width: 1024px) {
+            padding-top: 100px;
+        }
+
+        .content {
+            .body {
+                font-family: Helvetica, sans-serif;
+            }
+
+            grid-area: content;
+        }
+    }
 }
 
 .divider-thick {
-  height: 5px;
-  border-style: none;
+    height: 5px;
+    border-style: none;
 }
 
 .bg-green {
-  background: $green;
+    background: $green;
 }

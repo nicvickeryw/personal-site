@@ -5,6 +5,7 @@ export interface HoverImageWrapperProps {
     rank: number;
     title: string;
     subtitle: string;
+    style?: Record<string, string>;
 }
 
 export const HoverImageWrapper: React.FC<HoverImageWrapperProps> = ({
@@ -12,6 +13,7 @@ export const HoverImageWrapper: React.FC<HoverImageWrapperProps> = ({
     rank,
     title,
     subtitle,
+    style,
 }) => {
     const [hovered, setHovered] = useState(false);
 
@@ -19,7 +21,6 @@ export const HoverImageWrapper: React.FC<HoverImageWrapperProps> = ({
         <div
             style={{
                 background: '#f2f2f2',
-                margin: '20px',
                 boxShadow: hovered
                     ? '0px 5px 3px -1px rgba(0,0,0,0.2), 0px 5px 5px 0px rgba(0,0,0,0.14), 0px 3px 5px 0px rgba(0,0,0,0.12)'
                     : '0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12)',
@@ -28,6 +29,7 @@ export const HoverImageWrapper: React.FC<HoverImageWrapperProps> = ({
                 zIndex: hovered ? 2 : 1,
                 borderBottomRightRadius: '10px',
                 borderBottomLeftRadius: '10px',
+                ...style,
             }}
         >
             <img

@@ -1,7 +1,7 @@
 import React from 'react';
 import ContentLoader from 'react-content-loader';
 
-export const AlbumImageContentLoader: React.FC<{ style: any }> = props => {
+export const AlbumImageContentLoader: React.FC<{ style?: any }> = props => {
     return (
         <ContentLoader
             speed={2}

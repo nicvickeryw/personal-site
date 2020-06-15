@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import ContentHeader from '../content-header/ContentHeader';
 import { useAnimClassState } from '../../common/helpers/use-anim-class-state';
 import axios from 'axios';
 import HoverImageWrapper from '../hover-image-wrapper/HoverImageWrapper';
 import { AlbumsAPIData } from '../../common/api/lastfm-data';
 import AlbumImageContentLoader from '../content-loader/AlbumImageContentLoader';
+import ViewportContext from '../../common/context/viewport-context';
 
 const NUM_OF_ALBUMS = 25;
 
@@ -14,6 +15,7 @@ export const Interests: React.FC = () => {
         'body hidden',
         'fade-in-below visible'
     );
+    const viewportType = useContext(ViewportContext);
 
     const [albumData, setAlbumData] = useState<AlbumsAPIData[]>([]),
         albums = albumData.map((album, i) => {
@@ -21,6 +23,9 @@ export const Interests: React.FC = () => {
 
             return (
                 <HoverImageWrapper
+                    style={{
+                        margin: viewportType === 'mobile' ? '5px' : '20px',
+                    }}
                     key={i}
                     rank={i}
                     title={album.name}
@@ -51,6 +56,7 @@ export const Interests: React.FC = () => {
                     style={{
                         display: 'flex',
                         flexWrap: 'wrap',
+                        justifyContent: 'center',
                     }}
                 >
                     {albums.length
@@ -58,7 +64,12 @@ export const Interests: React.FC = () => {
                         : Array.from(Array(NUM_OF_ALBUMS)).map((_, i) => (
                               <AlbumImageContentLoader
                                   key={i}
-                                  style={{ margin: '20px' }}
+                                  style={{
+                                      margin:
+                                          viewportType === 'mobile'
+                                              ? '0'
+                                              : '20px',
+                                  }}
                               />
                           ))}
                 </div>
