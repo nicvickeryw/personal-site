@@ -1,3 +1,5 @@
-# Personal Site v1
+# Personal Site
 
-Personal site to do some fun stuff with React.
+A simple personal website.
+
+Built with create-react-app and TypeScript.
