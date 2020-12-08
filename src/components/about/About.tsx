@@ -40,18 +40,26 @@ export const About: React.FC = props => {
                 <div className={thirdSubHeadingAnimClasses}>
                     <p>
                         I'm a skilled, driven and motivated software developer
-                        from Wollongong, NSW.
+                        from Sydney, NSW.
                     </p>
                     <p>
-                        I'm currently working for Padua Financial Group, where
-                        we use <b>PHP</b> alongside SilverStripe for our
-                        back-end RESTful API development, alongside an
+                        I'm currently working for Clipsal Solar, where we use{' '}
+                        <b>
+                            <a
+                                style={{ textDecoration: 'none' }}
+                                href={'google.com'}
+                            >
+                                Serverless Framework
+                            </a>
+                        </b>{' '}
+                        alongside SilverStripe for our back-end RESTful API
+                        development, alongside an
                         <b> Angular 9 </b>
                         front-end system, all hosted on <b>AWS EC2 & S3</b>.
                     </p>
                     <p>
                         Although my current speciality lies in building fluid
-                        and responsive UIs, I have a background in network
+                        and responsive UIs, I have a background in n etwork
                         design & architecture - which means I'm also well
                         acquainted with how things work under the hood.
                     </p>

@@ -10,17 +10,24 @@ export const Projects: React.FC = () => {
         'fade-in-below visible'
     );
     return (
-        <React.Fragment>
+        <>
             <ContentHeader dividerColour={'green'} title={'Projects'} />
             <section className={classes}>
-                <h2>GENOA</h2>
+                <h2>Clipsal Pulse</h2>
+                <Card>
+                    <p>
+                        A progressive web app used by home owners to view, manage
+                        and control their in-home solar PV system.
+                    </p>
+                </Card>
+                <h2>GENOA (Padua Financial Group)</h2>
                 <Card>
                     <p>
                         A large scale system for processing, categorizing and
                         assigning advice requests for financial advisers.
                     </p>
                 </Card>
-                <h2>SORRENTO</h2>
+                <h2>SORRENTO (Padua Financial Group)</h2>
                 <Card>
                     <p>
                         A complex multi-tenant forms-based system for advisers
@@ -30,7 +37,7 @@ export const Projects: React.FC = () => {
                     </p>
                 </Card>
             </section>
-        </React.Fragment>
+        </>
     );
 };
 
