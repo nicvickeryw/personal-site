@@ -44,22 +44,39 @@ export const About: React.FC = props => {
                     </p>
                     <p>
                         I'm currently working for Clipsal Solar, where we use{' '}
-                        <b>
-                            <a
-                                style={{ textDecoration: 'none' }}
-                                href={'google.com'}
-                            >
-                                Serverless Framework
-                            </a>
+                        <b
+                            style={{ cursor: 'pointer' }}
+                            onClick={() => {
+                                window.open('https://www.serverless.com/');
+                            }}
+                        >
+                            Serverless Framework
                         </b>{' '}
-                        alongside SilverStripe for our back-end RESTful API
-                        development, alongside an
-                        <b> Angular 9 </b>
-                        front-end system, all hosted on <b>AWS EC2 & S3</b>.
+                        alongside SilverStripe for our back-end development,
+                        alongside a
+                        <b
+                            style={{ cursor: 'pointer' }}
+                            onClick={() => {
+                                window.open('https://www.reactjs.org/');
+                            }}
+                        >
+                            {' '}
+                            React{' '}
+                        </b>
+                        front-end system, leveraging the fantastic{' '}
+                        <b
+                            style={{ cursor: 'pointer' }}
+                            onClick={() => {
+                                window.open('https://chakra-ui.com/');
+                            }}
+                        >
+                            Chakra UI
+                        </b>{' '}
+                        framework.
                     </p>
                     <p>
                         Although my current speciality lies in building fluid
-                        and responsive UIs, I have a background in n etwork
+                        and responsive UIs, I have a background in network
                         design & architecture - which means I'm also well
                         acquainted with how things work under the hood.
                     </p>
@@ -78,13 +95,14 @@ export const About: React.FC = props => {
                     </ul>
                     <br />
                     <Card style={{ marginBottom: '50px' }}>
-                        <h3>Skills</h3>
+                        <h3>Stuff I'm good at</h3>
                         <div className="skills-chips">
                             <Chip>React</Chip>
                             <Chip>Angular 2+</Chip>
-                            <Chip>Material Design</Chip>
-                            <Chip>GraphQL</Chip>
-                            <Chip>Apollo Client/Server</Chip>
+                            <Chip>JavaScript</Chip>
+                            <Chip>Responsive Design</Chip>
+                            <Chip>Object-oriented Programming</Chip>
+                            <Chip>HTML/CSS</Chip>
                             <Chip>Amazon Web Services</Chip>
                         </div>
                     </Card>
