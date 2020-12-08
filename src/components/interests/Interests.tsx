@@ -15,20 +15,20 @@ export const Interests: React.FC = () => {
         'fade-in-below visible'
     );
 
-    const [albumData, setAlbumData] = useState<AlbumsAPIData[]>([]),
-        albums = albumData.map((album, i) => {
-            const image = album.image.find(({ size }) => size === 'extralarge');
+    const [albumData, setAlbumData] = useState<AlbumsAPIData[]>([]);
+    const albums = albumData.map((album, i) => {
+        const image = album.image.find(({ size }) => size === 'extralarge');
 
-            return (
-                <HoverImageWrapper
-                    key={i}
-                    rank={i}
-                    title={album.name}
-                    subtitle={album.artist.name}
-                    src={image ? image['#text'] : ''}
-                />
-            );
-        });
+        return (
+            <HoverImageWrapper
+                key={i}
+                rank={i}
+                title={album.name}
+                subtitle={album.artist.name}
+                src={image ? image['#text'] : ''}
+            />
+        );
+    });
 
     if (!albumData.length) {
         axios

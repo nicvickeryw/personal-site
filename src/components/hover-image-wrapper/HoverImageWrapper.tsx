@@ -53,6 +53,8 @@ export const HoverImageWrapper: React.FC<HoverImageWrapperProps> = ({
                         flexDirection: 'column',
                         fontWeight: 550,
                         padding: '5px 0',
+                        width: '300px',
+                        textAlign: 'center',
                     }}
                 >
                     <div style={{ margin: 'auto', fontWeight: 900 }}>
