@@ -52,8 +52,7 @@ export const About: React.FC = props => {
                         >
                             Serverless Framework
                         </b>{' '}
-                        alongside SilverStripe for our back-end development,
-                        alongside a
+                        for our back-end development, alongside a
                         <b
                             style={{ cursor: 'pointer' }}
                             onClick={() => {
